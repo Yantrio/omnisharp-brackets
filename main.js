@@ -8,6 +8,7 @@ define(function (require, exports, module) {
         ExtensionUtils = brackets.getModule("utils/ExtensionUtils"),
         Menus = brackets.getModule('command/Menus'),
         Omnisharp = require('modules/omnisharp'),
+        CodeActions = require('modules/codeAction'),
         AppInit = brackets.getModule('utils/AppInit'),
         CodeInspection = require('modules/codeInspection'),
         ContextMenu = require('modules/contextMenu'),
@@ -41,6 +42,7 @@ define(function (require, exports, module) {
         menu.addMenuDivider();
         menu.addMenuItem(OmniCommands.FIX_USINGS);
         menu.addMenuItem(OmniCommands.FORMAT_DOCUMENT);
+        menu.addMenuItem('CODEACTIONSIDNEEDED');
 
         disable();
     }
@@ -54,7 +56,6 @@ define(function (require, exports, module) {
             Intellisense.init();
             Toolbar.init();
             ReferenceDisplay.init();
-
             ExtensionUtils.loadStyleSheet(module, 'styles/omnisharp.css');
 
             createMenu();

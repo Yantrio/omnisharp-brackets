@@ -94,3 +94,9 @@ span.intellisense {
     margin-left: 13px;
     vertical-align: middle;
 }
+
+.cm-s-default.omnisharp-code {
+    line-height:1.2;
+    max-width:50%;
+}
+

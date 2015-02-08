@@ -11,6 +11,7 @@ define(function (require, exports, module) {
         OmniStrings = require('modules/omniStrings'),
         RenameCommand = require('commands/rename'),
         goToDefinitionCommand = require('commands/goToDefinition'),
+        codeActions = require('modules/codeAction'),
         Preferences = require('modules/preferences');
 
     function fixCodeIssue() {
@@ -24,6 +25,10 @@ define(function (require, exports, module) {
     function fixUsings() {
         Helpers.makeRequestAndRefreshDocument('fixusings');
     }
+    
+    function openCodeActions() {
+        codeActions.openInlineEditor();
+    }
 
     function init() {
         CommandManager.register(OmniStrings.CMD_FORMAT_DOCUMENT, OmniCommands.FORMAT_DOCUMENT, formatDocument);
@@ -34,6 +39,7 @@ define(function (require, exports, module) {
         CommandManager.register(OmniStrings.CMD_STOP_OMNISHARP, OmniCommands.STOP_OMNISHARP, Omnisharp.stop);
         CommandManager.register(OmniStrings.CMD_FIX_CODE_ISSUE, OmniCommands.FIX_CODE_ISSUE, fixCodeIssue);
         CommandManager.register(OmniStrings.CMD_OPEN_PREFERENCES, OmniCommands.OPEN_PREFERENCES, Preferences.open);
+        CommandManager.register('CODEACTIONSTRINGNEEDED', 'CODEACTIONSIDNEEDED', openCodeActions);
     }
 
     exports.init = init;

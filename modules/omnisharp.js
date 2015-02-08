@@ -98,7 +98,14 @@ define(function (require, exports, module) {
         $(ProjectManager).on('projectClose', kill);
         $(ProjectManager).on('projectOpen', kill);
     }
+    
+    function isOmnisharpRunning() {
+        return isRunning;
+    }
 
+
+ 
+    exports.isOmnisharpRunning = isOmnisharpRunning;
     exports.makeRequest = makeRequest;
     exports.start = start;
     exports.stop = stop;
