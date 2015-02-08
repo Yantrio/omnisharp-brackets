@@ -30,6 +30,7 @@ define(function (require, exports, module) {
             contextMenu.addMenuItem(OmniCommands.GO_TO_DEFINITION, Preferences.get().keyboardShortcuts.goToDefinition);
             contextMenu.addMenuItem(OmniCommands.RENAME, Preferences.get().keyboardShortcuts.rename);
             contextMenu.addMenuItem(OmniCommands.FIX_CODE_ISSUE, Preferences.get().keyboardShortcuts.fixCodeIssue);
+            contextMenu.addMenuItem(OmniCommands.CODE_ACTIONS, Preferences.get().keyboardShortcuts.codeActions);
         } else {
             contextMenu.removeMenuItem(OmniCommands.GO_TO_DEFINITION);
             contextMenu.removeMenuItem(OmniCommands.RENAME);

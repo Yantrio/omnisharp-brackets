@@ -39,7 +39,7 @@ define(function (require, exports, module) {
         CommandManager.register(OmniStrings.CMD_STOP_OMNISHARP, OmniCommands.STOP_OMNISHARP, Omnisharp.stop);
         CommandManager.register(OmniStrings.CMD_FIX_CODE_ISSUE, OmniCommands.FIX_CODE_ISSUE, fixCodeIssue);
         CommandManager.register(OmniStrings.CMD_OPEN_PREFERENCES, OmniCommands.OPEN_PREFERENCES, Preferences.open);
-        CommandManager.register('CODEACTIONSTRINGNEEDED', 'CODEACTIONSIDNEEDED', openCodeActions);
+        CommandManager.register(OmniStrings.CMD_CODE_ACTIONS, OmniCommands.CODE_ACTIONS, openCodeActions);
     }
 
     exports.init = init;

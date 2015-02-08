@@ -118,7 +118,7 @@ define(function (require, exports, module) {
         
         getCodeActionDiff(codeAction, function (buffer, lineNumber) {
             self.previewPane.innerHTML = '';
-            CodeMirror(self.previewPane, { value: buffer, lineNumbers: true, mode: 'text/x-csharp', readOnly: 'nocursor', firstLineNumber: 1 });
+            CodeMirror(self.previewPane, { value: buffer, lineNumbers: false, mode: 'text/x-csharp', readOnly: 'nocursor', firstLineNumber: 1 });
 
         });
     };
@@ -130,20 +130,15 @@ define(function (require, exports, module) {
             self.hostEditor.document.setText(text);
         });
     };
-
-    function codeActionsInlineEditorProvider(hostEditor, pos) {
+    
+    function OpenCodeActionsInlineEditor() {
         if (!Helpers.isCSharp()) {
             return;
         }
         if (!Omnisharp.isOmnisharpRunning()) {
             return;
         }
-        var inlineEditor = new CodeActionsInlineEditor(pos, hostEditor);
-
-        return new $.Deferred().resolve(inlineEditor);
-    }
-    
-    function OpenCodeActionsInlineEditor() {
+        
         var editor = EditorManager.getActiveEditor(),
             pos = editor.getCursorPos(true, "start"),
             widget = new CodeActionsInlineEditor(pos, editor);

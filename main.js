@@ -24,6 +24,7 @@ define(function (require, exports, module) {
         CommandManager.get(OmniCommands.STOP_OMNISHARP).setEnabled(true);
         CommandManager.get(OmniCommands.FIX_USINGS).setEnabled(true);
         CommandManager.get(OmniCommands.FORMAT_DOCUMENT).setEnabled(true);
+        CommandManager.get(OmniCommands.CODE_ACTIONS).setEnabled(true);
     }
 
     function disable() {
@@ -31,6 +32,7 @@ define(function (require, exports, module) {
         CommandManager.get(OmniCommands.STOP_OMNISHARP).setEnabled(false);
         CommandManager.get(OmniCommands.FIX_USINGS).setEnabled(false);
         CommandManager.get(OmniCommands.FORMAT_DOCUMENT).setEnabled(false);
+        CommandManager.get(OmniCommands.CODE_ACTIONS).setEnabled(false);
     }
 
     function createMenu() {
@@ -42,7 +44,7 @@ define(function (require, exports, module) {
         menu.addMenuDivider();
         menu.addMenuItem(OmniCommands.FIX_USINGS);
         menu.addMenuItem(OmniCommands.FORMAT_DOCUMENT);
-        menu.addMenuItem('CODEACTIONSIDNEEDED');
+        menu.addMenuItem(OmniCommands.CODE_ACTIONS);
 
         disable();
     }

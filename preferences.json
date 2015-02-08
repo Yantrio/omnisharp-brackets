@@ -2,6 +2,7 @@
     "keyboardShortcuts": {
         "rename": "ctrl-r",
         "goToDefinition": "ctrl-shift-g",
-        "fixCodeIssue": "ctrl-i"
+        "fixCodeIssue": "ctrl-i",
+        "codeActions": "ctrl-."
     }
 }
